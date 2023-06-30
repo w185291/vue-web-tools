@@ -2,7 +2,7 @@ const Home = [
     {
         path: '/',
         name: 'home',
-        component: () => import('../views/home/Index.vue'), 
+        component: () => import('@/views/home/Index.vue'), 
     }
 ];
   

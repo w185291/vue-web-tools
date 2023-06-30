@@ -1,3 +1,6 @@
 <template>
-    <h1>HOME</h1>
+    <main class="flex-grow-1">
+        
+    </main>
 </template>
+
