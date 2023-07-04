@@ -1,0 +1,23 @@
+body,html{
+  height: 100%;
+}
+
+/* body {
+  padding-bottom: 20px;
+} */
+
+#app{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 980px) {
+  .navbar-nav .nav-item{
+    margin-left: 10px;
+  }
+}
