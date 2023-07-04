@@ -2,7 +2,8 @@ const Home = [
     {
         path: '/',
         name: 'home',
-        component: () => import('../views/home/Index.vue'), 
+        meta: { title: 'Web Tool 整理工具' },
+        component: () => import('@/views/home/Index.vue'), 
     }
 ];
   
