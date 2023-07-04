@@ -15,3 +15,9 @@ body,html{
 .navbar {
   margin-bottom: 20px;
 }
+
+@media (min-width: 980px) {
+  .navbar-nav .nav-item{
+    margin-left: 10px;
+  }
+}

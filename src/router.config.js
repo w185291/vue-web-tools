@@ -10,12 +10,18 @@ const mergeRoutes = [];
 
 mergeRoutes.push(...Home,...Convert,...Query);
 
-console.log(mergeRoutes);
+// console.log(mergeRoutes);
 
 const router = createRouter({
 // 这里使用hash模式路由
   history: createWebHistory(),  
   routes: mergeRoutes,
+});
+
+router.beforeEach((to, from, next) => {
+  console.log(to);
+  document.title = to.meta.title;
+  next();
 });
 
 export default router

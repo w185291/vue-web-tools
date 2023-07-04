@@ -1,3 +1,33 @@
+<script>
+export default {
+    data() {
+        return {
+            beforeConvertContent : "",
+            afterConvertContent : "",
+            convertType : "encode"
+        }
+    },
+    methods:{
+        convert(){
+            if(this.beforeConvertContent==="" || this.beforeConvertContent===null){
+                alert('請輸入需轉換內容!!');
+                return;
+            }
+            this.getConvertType();
+            if(this.convertType=="encode"){
+                this.afterConvertContent = encodeURIComponent(this.beforeConvertContent);
+            }else{
+                this.afterConvertContent = decodeURIComponent(this.beforeConvertContent);
+            }
+        },
+        getConvertType(){
+            let selectElement = document.querySelector('#convert-type');
+            this.convertType = selectElement.value;
+        }
+    }
+}
+</script>
+
 <template>
     <main class="flex-grow-1">
         <div class="container">
@@ -8,28 +38,28 @@
             <form class="row g-3" action="/action_page.php">
                 <div class="col-12 mb-3 mt-3">
 
-                    <label for="comment">需轉換內容：</label>
-                    <textarea class="form-control" rows="5" id="comment" name="text" placeholder="文本內容"></textarea>
+                    <label for="before-content">需轉換內容：</label>
+                    <textarea v-model="beforeConvertContent" id="before-content" class="form-control" rows="5"  name="text" placeholder="文本內容"></textarea>
                 </div>
 
 
 
                 <div class="col-md-4">
-                    <label for="inputState" class="form-label">轉換方式</label>
-                    <select id="inputState" class="form-select">
-                        <option>ENCODE</option>
-                        <option>DECODE</option>
+                    <label for="convert-type" class="form-label">轉換方式</label>
+                    <select id="convert-type" class="form-select">
+                        <option value="encode" selected>ENCODE</option>
+                        <option value="decode">DECODE</option>
                     </select>
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary">轉換</button>
+                    <button type="button" class="btn btn-primary" @click="convert()">轉換</button>
                 </div>
 
 
 
                 <div class="col-12 mb-3 mt-3">
-                    <label for="comment">轉換完成內容:</label>
-                    <textarea class="form-control" rows="5" id="comment" name="text" placeholder="文本內容"></textarea>
+                    <label for="after-content">轉換完成內容:</label>
+                    <textarea v-model="afterConvertContent" id="after-content" class="form-control" rows="5"  name="text" placeholder="文本內容"></textarea>
                 </div>
 
 
