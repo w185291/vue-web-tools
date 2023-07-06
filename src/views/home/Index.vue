@@ -29,7 +29,11 @@ export default {
                         <tr>
                             <th scope="row">{{ index }}</th>
                             <td>{{ routeItem.name }}</td>
-                            <td><a href="{{ routeItem.path }}">{{ routeItem.path }}</a></td>
+                            <td>
+                                <router-link :to="routeItem.path">
+                                    {{ routeItem.path }}
+                                </router-link>
+                            </td>
                         </tr>
                     </template>
                 </tbody>
