@@ -4,12 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import './style.css';
 import App from './App.vue';
-import CryptoJS from 'crypto-js';
+import quickEncrypt from './lib/encrypt';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+import MyIpQuery from './lib/getIp';
 
 
 const app = createApp(App);
 
-app.config.globalProperties.CryptoJS = CryptoJS;
+app.config.globalProperties.quickEncrypt  = quickEncrypt;
+app.config.globalProperties.MyIp  = MyIpQuery;
 
-app.use(router).mount('#app');
+app.use(router).use(VueAxios, axios).mount('#app');
 
