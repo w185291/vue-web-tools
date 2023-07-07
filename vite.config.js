@@ -9,8 +9,9 @@ export default defineConfig({
     vue(),
     Sitemap({
       hostname : "https://vue-tools.roger-soho.win/",
-      exclude: [
-        '/tools/url'
+      dynamicRoutes: [
+        '/'
+      , '/tools/url'
       , '/tools/json'
       , '/tools/one-way-encryption'
       , '/tools/reversible-encryption'
